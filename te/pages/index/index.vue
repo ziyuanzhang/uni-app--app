@@ -11,8 +11,8 @@
 	export default {
 		data() {
 			return {
-				//title: 'Hello---原始包',
-				title: 'Hello---热更新',
+				title: 'Hello---原始包',
+				//title: 'Hello---热更新',
 				//title: 'Hello---apk/api',
 			}
 		},
