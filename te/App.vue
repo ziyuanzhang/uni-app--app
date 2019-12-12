@@ -1,9 +1,11 @@
 <script>
 import api from './common/api.js';
+
 export default {
 	onLaunch: function() {
+		
 		console.log('App Launch');
-		 api.checkUpdate(true);
+		// api.checkUpdate(true);
 	},
 	onShow: function() {
 		console.log('App Show');
@@ -13,7 +15,15 @@ export default {
 	}
 };
 </script>
-
-<style>
-/*每个页面公共css */
+<style lang="less">
+@import url('./assets/theme.less');
+.theme-default {
+	.themeSet(yellow);
+}
+.theme-red {
+	.themeSet(red);
+}
+.theme-green {
+	.themeSet(green);
+}
 </style>

@@ -6,7 +6,15 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}
-	],
+        ,{
+            "path" : "pages/sqLite/sqLite",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/set/set",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
