@@ -1,6 +1,7 @@
 <template>
 	<view class="set-page" :class="themeName">
 		<view class="color-set">
+			<view class="btn btn-default" @click="setThemeFun('default')">default</view>
 			<view class="btn btn-green" @click="setThemeFun('green')">green</view>
 			<view class="btn btn-red" @click="setThemeFun('red')">red</view>
 		</view>
@@ -29,12 +30,10 @@ export default {
 <style lang="less" scoped>
 .set-page {
 	.color-set {
-		display: flex;
-		align-items: center;
-		text-align: center;
 		.btn {
-			width: 60px;
-			height: 40px;
+			display: block;
+			margin-bottom: 5px;
+			text-decoration: underline;
 		}
 	}
 }

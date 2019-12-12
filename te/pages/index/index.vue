@@ -1,61 +1,61 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
+	<view class="index-page" :class="themeName">
+		<image class="logo" mode="widthFix" src="/static/logo.png"></image>
+
 		<view class="text-area">
-			<view class="">
-				<text class="title">{{ title }}</text>
-			</view>
-			<navigator url="/pages/sqLite/sqLite">sqLite</navigator>
-			<navigator url="/pages/set/set">set</navigator>
+			<text class="title">{{ title }}</text>
+		</view>
+
+		<view class="list">
+			<navigator class="item" url="/pages/sqLite/sqLite">sqLite</navigator>
+			<navigator class="item" url="/pages/set/set">set</navigator>
 		</view>
 	</view>
 </template>
 
 <script>
-  
-	export default {
-		data() {
-			return {
-				title: 'Hello---原始包',
-				//title: 'Hello---热更新',
-				//title: 'Hello---apk/api',
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-			gotoFun (val) {				
-			}
-
-		}
+import { mapState } from 'vuex';
+export default {
+	data() {
+		return {
+			title: 'Hello---原始包'
+			//title: 'Hello---热更新',
+			//title: 'Hello---apk/api',
+		};
+	},
+	computed: {
+		...mapState(['themeName'])
+	},
+	onLoad() {},
+	methods: {
+		gotoFun(val) {}
 	}
+};
 </script>
 
-<style>
-.content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
+<style lang="less">
+.index-page {
+	.logo {
+		display: block;
+		text-align: center;
+		width: 25%;
+		margin: 20px auto;
+	}
 
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50rpx;
-}
+	.text-area {
+		display: flex;
+		justify-content: center;
+		.title {
+			font-size: 36rpx;
+		}
+	}
 
-.text-area {
-	display: flex;
-	justify-content: center;
-}
-
-.title {
-	font-size: 36rpx;
-	color: #8f8f94;
+	.list {
+		padding: 10px 20px;
+		.item{
+			margin-bottom: 5px;
+			text-decoration: underline;
+		}
+	}
 }
 </style>

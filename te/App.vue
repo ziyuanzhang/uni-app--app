@@ -2,8 +2,7 @@
 import api from './common/api.js';
 
 export default {
-	onLaunch: function() {
-		
+	onLaunch: function() {		
 		console.log('App Launch');
 		// api.checkUpdate(true);
 	},
@@ -18,7 +17,7 @@ export default {
 <style lang="less">
 @import url('./assets/theme.less');
 .theme-default {
-	.themeSet(yellow);
+	.themeSet(#8f8f94);
 }
 .theme-red {
 	.themeSet(red);

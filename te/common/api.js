@@ -39,7 +39,7 @@ let api = {
 														force: false
 													},
 													function() {
-														showLoading.setTitle(' -- 安装成功');
+														showLoading.setTitle('安装成功');
 														setTimeout(function() {
 															plus.nativeUI.closeWaiting();
 															plus.runtime.restart();
