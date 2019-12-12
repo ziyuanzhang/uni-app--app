@@ -96,10 +96,10 @@ export default {
 					name: 'first',
 					sql: 'select * from database',
 					success: function(data) {
-						console.log('selectSql success!--获取:' + JSON.stringify(data, null, 4));
+						console.log('selectSql success!--获取成功:' + JSON.stringify(data, null, 4));
 					},
 					fail: function(e) {
-						console.log('selectSql failed: ' + JSON.stringify(e));
+						console.log('selectSql failed: --获取失败:' + JSON.stringify(e));
 					}
 				});
 			}
@@ -111,10 +111,10 @@ export default {
 					name: 'first',
 					sql: "drop table if exists database",
 					success: function(e) {
-						console.log('executeSql success!--删除表');
+						console.log('executeSql success!--删除表成功');
 					},
 					fail: function(e) {
-						console.log('executeSql failed: ' + JSON.stringify(e));
+						console.log('executeSql failed--删除表失败: ' + JSON.stringify(e));
 					}
 				});
 			}
