@@ -1,6 +1,6 @@
 <template>
 	<view class="index-page" :class="themeName">
-		<image class="logo" mode="widthFix" src="/static/logo.png"></image>
+		<image class="logo" mode="widthFix" src="/static/img/logo.png"></image>
 
 		<view class="text-area">
 			<text class="title">{{ title }}</text>

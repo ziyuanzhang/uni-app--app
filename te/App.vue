@@ -15,7 +15,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import url('./assets/theme.less');
+@import url('./static/css/theme.less');
 .theme-default {
 	.themeSet(#8f8f94);
 }
