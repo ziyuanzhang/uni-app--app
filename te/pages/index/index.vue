@@ -9,6 +9,7 @@
 		<view class="list">
 			<navigator class="item" url="/pages/sqLite/sqLite">sqLite</navigator>
 			<navigator class="item" url="/pages/set/set">set</navigator>
+			<navigator class="item" url="/pages/uchart/uchart">uchart-pie</navigator>
 		</view>
 	</view>
 </template>
@@ -26,7 +27,9 @@ export default {
 	computed: {
 		...mapState(['themeName'])
 	},
-	onLoad() {},
+	onLoad() {
+		
+	},
 	methods: {
 		gotoFun(val) {}
 	}
