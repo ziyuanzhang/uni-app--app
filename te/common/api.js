@@ -1,5 +1,30 @@
 import Request from '@/plugins/request/index';
+
+
+
 let $http = Request();
+let pushClientInfo = plus.push.getClientInfo();
+/*
+// import nativeComponent from '@/common/nativeComponent.js';
+// 自定义进度度条
+// let logoObj = { logoSrc: '/static/img/logo.png', logoW: '72', logoH: '72' };
+// let TXTObj = { txt: '开始下载:0%' };
+// nativeComponent.drawProgress('progress', logoObj, TXTObj);
+
+// let timer = setTimeout(() => {
+// 	let num = 1;
+// 	let setTime = setInterval(() => {
+// 		if (num < 100) {
+// 			num++;
+// 			nativeComponent.changeProgress('progress', num);
+// 		} else {
+// 			nativeComponent.closeProgress('progress')
+// 			clearInterval(setTime);
+// 		}
+// 	}, 50);
+// 	clearTimeout(timer);
+// }, 0);
+*/
 let api = {
 	checkUpdate: function(manualCheck) {
 		plus.runtime.getProperty(plus.runtime.appid, function(widgetInfo) {
@@ -71,6 +96,54 @@ let api = {
 					}
 				});
 		});
+	},
+	sendPushClientInfo: function() {
+		let timer = setInterval(() => {
+				if (pushClientInfo.clientid == "null") {
+					pushClientInfo = plus.push.getClientInfo();	
+					console.log("pushClientInfo:",pushClientInfo)
+				} else {
+					clearInterval(timer)
+					$http.post('/pushClientInfo', {
+						data: {
+							"id": "unipush",
+							"token": pushClientInfo.token,
+							"clientid": pushClientInfo.clientid,
+							"appid": pushClientInfo.appid,
+							"appkey": pushClientInfo.appkey
+						}
+					}).then((res) => {
+						console.log("sendPushClientInfo:", res.data)
+					})
+				}
+			},
+			500);
+	},
+	pushMessage: function() {
+		plus.push.addEventListener('click', (res) => {
+			//pushCallBack(res)
+			// uni.showModal({
+			// 	title: '推送结果',
+			// 	content: JSON.stringify(res, null, 4)
+			// })
+			console.log("res:",res)
+		});
+
+		plus.push.addEventListener('receive', (res) => {
+			console.log("message:",res)
+			//pushCallBack(res)
+			// uni.showModal({
+			// 	title: '推送结果',
+			// 	content: JSON.stringify(res, null, 4)
+			// })
+		});
+
+		// function pushCallBack(res) {
+		// 	uni.showModal({
+		// 		title: '推送结果',
+		// 		content: JSON.stringify(res, null, 4)
+		// 	})
+		// }
 	}
 }
 export default api

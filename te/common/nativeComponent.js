@@ -1,5 +1,6 @@
+let systemInfo = uni.getSystemInfoSync();
 let nativeComponent = {
-	drawProgress: (viewId, systemInfo, logoObj, TXTObj) => {
+	drawProgress: (viewId, logoObj, TXTObj) => {
 		let {
 			windowWidth,
 			windowHeight
@@ -88,7 +89,7 @@ let nativeComponent = {
 
 		view.show();
 	},
-	changeProgress: (viewId, systeminfo, num) => {
+	changeProgress: (viewId, num) => {
 		let {
 			windowWidth,
 			windowHeight
@@ -126,6 +127,7 @@ let nativeComponent = {
 		let nativeV = plus.nativeObj.View.getViewById(viewId);
 		nativeV.close();
 	}
+	
 }
 
 export default nativeComponent

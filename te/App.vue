@@ -1,30 +1,18 @@
 <script>
 import api from './common/api.js';
-import nativeComponent from './common/nativeComponent.js';
+
 
 export default {
 	onLaunch: function() {
 		console.log('App Launch');
 		// api.checkUpdate(true);
-		let systemInfo = uni.getSystemInfoSync();
+		 api.sendPushClientInfo();
+         api.pushMessage();
+		// {"title":"ceshibiaoti","content":"ceshineirong","payload":"test"}
+		// intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x14000000;component=uni.UNI8B016FC/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=测试标题;S.content=测试内容;S.payload=test;end
+        // intent:#Intent;component=uni.UNI8B016FC;S.parm1=value1;S.parm2=value2;end
+        // intent:#Intent;component=你的包名/你要打开的 activity 全路径;S.parm1=value1;S.parm2=value2;end
 
-		let logoObj = { logoSrc: '/static/img/logo.png', logoW: '72', logoH: '72' };
-		let TXTObj = { txt: '开始下载:0%' };
-		nativeComponent.drawProgress('progress', systemInfo, logoObj, TXTObj);
-
-		let timer = setTimeout(() => {
-			let num = 1;
-			let setTime = setInterval(() => {
-				if (num < 100) {
-					num++;
-					nativeComponent.changeProgress('progress', systemInfo, num);
-				} else {
-					nativeComponent.closeProgress('progress')
-					clearInterval(setTime);
-				}
-			}, 50);
-			clearTimeout(timer);
-		}, 0);
 	},
 	onShow: function() {
 		console.log('App Show');

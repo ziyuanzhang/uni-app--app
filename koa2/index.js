@@ -22,6 +22,13 @@ router.post('/checkUpdate', function (ctx, next) {
     var currentVersions = ctx.request.body.version.split('.');
     var serverVersions = appVersion.split('.');
 
+
+    ctx.body = {
+        isUpdate: false,
+        msg: "已经是最新版本"
+    }
+
+
     if (serverVersions[0] > currentVersions[0]) {
         // 说明有大版本更新 
         if (ctx.request.body.phoneType == "iOS") {
@@ -50,6 +57,10 @@ router.post('/checkUpdate', function (ctx, next) {
             msg: "已经是最新版本"
         }
     }
+})
+router.post('/pushClientInfo', function (ctx, next) {
+    console.log("pushClientInfo:", JSON.stringify(ctx.request.body, null, 4));
+    ctx.body = '收到pushClientInfo';
 })
 router.get('/', function (ctx, next) {
     ctx.body = "Hello koa";
