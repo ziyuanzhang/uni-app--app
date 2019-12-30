@@ -1,13 +1,15 @@
 <script>
-import api from './common/api.js';
+ import api from './common/api.js';
 
 
 export default {
 	onLaunch: function() {
 		console.log('App Launch');
 		// api.checkUpdate(true);
-		 api.sendPushClientInfo();
-         api.pushMessage();
+		// api.sendPushClientInfo();
+        // api.pushMessage();
+		
+		
 		// {"title":"ceshibiaoti","content":"ceshineirong","payload":"test"}
 		// intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x14000000;component=uni.UNI8B016FC/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=测试标题;S.content=测试内容;S.payload=test;end
         // intent:#Intent;component=uni.UNI8B016FC;S.parm1=value1;S.parm2=value2;end

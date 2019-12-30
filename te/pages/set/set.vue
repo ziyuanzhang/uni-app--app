@@ -5,6 +5,9 @@
 			<view class="btn btn-green" @click="setThemeFun('green')">green</view>
 			<view class="btn btn-red" @click="setThemeFun('red')">red</view>
 		</view>
+		<view class="color">
+			
+		</view>
 	</view>
 </template>
 
@@ -35,6 +38,11 @@ export default {
 			margin-bottom: 5px;
 			text-decoration: underline;
 		}
+	}
+	.color{
+		width: 50px;
+		height: 50px;
+		
 	}
 }
 </style>
