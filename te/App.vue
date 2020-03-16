@@ -3,7 +3,17 @@
 
 
 export default {
-	onLaunch: function() {
+	onLaunch: function() {		
+		plus.screen.lockOrientation('landscape-secondary');
+		let systemInfo = uni.getSystemInfoSync();
+		//console.log("systemInfo:",systemInfo)
+		
+		if(systemInfo.platform=="android"){
+			nativeSet.windowFull(1);
+		}	
+		
+		
+		
 		console.log('App Launch');
 		// api.checkUpdate(true);
 		// api.sendPushClientInfo();
